@@ -1,0 +1,16 @@
+<div class="container align-items-center">
+<h2 align="center"> list of products </h2><br><br>
+<ul align="center">
+<li *ngFor="let product of products">
+<img src="http://127.0.0.1:8000{{product.image}}" alt="IMG NOT FOUND">
+<h2>{{product.product_name}}</h2>
+<h2><b>RS </b>{{product.price}} /-</h2>
+<h2>{{product.desc}}</h2>
+<div class="container">
+<button class="btn btn-success btn-sm mx-2">add to cart</button>
+<a routerLink="../Product-View"><button class="btn btn-info btn-sm" (click)="productclick(product)">view</button></a>
+</div>
+<br><br><br>
+</li>
+</ul>
+</div>

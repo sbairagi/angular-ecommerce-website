@@ -1,0 +1,73 @@
+<div class="container my-4">
+
+
+    <h3>Contact us</h3>
+    <form #tempRefVariable='ngForm' (ngSubmit)=myform(tempRefVariable)>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" ngModel id="name" placeholder="Enter Your Name" #name='ngModel' required maxLength='10' minLength='3'>
+<!-- errors sms -->
+    
+    <div class="alert alert-danger" *ngIf="!name.valid && (name.touched || name.dirty)" >
+      <div *ngIf="name.errors.required">
+      Please Fill The Field</div>
+      <div *ngIf="name.errors.minlength">
+      min length is 3 required</div>
+      
+    </div>
+    <!-- end errors  -->
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name="email" ngModel id="email" placeholder="Enter Your email" #email='ngModel' required maxLength='25' minLength='3' email >
+
+    <!-- errors sms -->
+    
+    <div class="alert alert-danger" *ngIf="!email.valid && (email.touched || email.dirty)" >
+      <div *ngIf="email.errors.required">
+      Please Fill The Field</div>
+      <div *ngIf="email.errors.minlength">
+      min length is 3 required</div>
+      <div *ngIf="email.errors.email">
+      email patern is not match</div>
+      
+    </div>
+    <!-- end errors  -->
+
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="tel" class="form-control" name="phone" ngModel id="phone" placeholder="Enter Your Phone no" #phone='ngModel' required tel>
+
+    <!-- errors sms -->
+    
+    <div class="alert alert-danger" *ngIf="!phone.valid && (phone.touched || phone.dirty)" >
+      <div *ngIf="phone.errors.required">
+      Please Fill The Field</div>
+      <div *ngIf="phone.errors.tel">
+      phone no patern is not match</div>
+      
+    </div>
+    <!-- end errors  -->
+
+  </div>
+
+  <div class="form-group">
+    <label for="desc">How may we help you?</label>
+    <textarea class="form-control" id="desc" ngModel rows="3" name="desc" #desc='ngModel' required></textarea>
+
+    <!-- errors sms -->
+    
+    <div class="alert alert-danger" *ngIf="!desc.valid && (desc.touched || desc.dirty)" >
+      <div *ngIf="desc.errors.required">
+      Please Fill The Field</div>
+      
+    </div>
+    <!-- end errors  -->
+
+  </div>
+        <button type="submit" class="btn btn-success" [disabled]='!tempRefVariable.valid'>submit</button>
+</form>
+</div>
